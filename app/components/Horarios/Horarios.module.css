@@ -1,0 +1,254 @@
+.horariosSection {
+  background: #0a0a0a;
+  position: relative;
+}
+
+.horariosGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 80px;
+  align-items: center;
+  max-width: 1100px; 
+  margin: 0 auto;
+  width: 100%;
+}
+
+.heading {
+  font-family: var(--font-anton), sans-serif;
+  font-size: var(--fs-h2);
+  text-transform: uppercase;
+  color: var(--white);
+  margin-top: 12px;
+  letter-spacing: 0.5px;
+}
+
+.text,
+.subtitle,
+.horariosSection p {
+  color: var(--gray);
+  font-family: var(--font-barlow), sans-serif;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+}  
+
+/* Lista de Horários */
+.scheduleList {
+  margin-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.scheduleRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-size: var(--fs-body-sm);
+}
+
+/* Desktop: aumenta a fonte da tabela de horários (~30%) */
+@media (min-width: 901px) {
+  .scheduleRow {
+    font-size: calc(var(--fs-body-sm) * 1.3);
+    padding: 22px 0;
+  }
+}
+
+.scheduleRow span:first-child {
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--white);
+}
+
+.scheduleRow span:last-child {
+  color: var(--gray);
+}
+
+.scheduleRowActive span:first-child {
+  color: var(--white);
+}
+
+.scheduleRowActive span:last-child {
+  color: var(--red);
+  font-weight: 700;
+}
+
+/* Card Suporte Premium */
+.ctaContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.ctaCard {
+  background: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  padding: 56px 40px 48px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 0; 
+  overflow: hidden;
+}
+
+.ctaBtn {
+  margin-top: 48px;
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+/* Container de tags no PC: Alinhamento horizontal padrão */
+.topicsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  gap: 12px;
+  margin: 16px 0 36px;
+}
+
+/* Estilo da tag (Ativo para PC e Mobile) */
+.topicTag {
+  border: 1px solid rgba(255, 68, 68, 0.25);
+  padding: 11px 22px;
+  border-radius: 999px;
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-size: calc(var(--fs-tiny) * 1.25);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--white);
+  background: rgba(255, 68, 68, 0.04);
+  
+  /* Efeito de sombra vermelha */
+  box-shadow: 
+    0 4px 12px rgba(255, 68, 68, 0.12), 
+    inset 0 0 8px rgba(255, 68, 68, 0.08);
+  
+  transition: all 0.3s ease;
+}
+
+.secondEyebrow {
+  display: block;
+  text-align: center;
+}
+
+.secondHeading {
+  font-family: var(--font-anton), sans-serif;
+  font-size: calc(var(--fs-h2-card) * 1.12);
+  text-transform: uppercase;
+  color: var(--white);
+  margin-top: 14px;
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+}
+
+.secondText {
+  color: var(--gray);
+  margin: 16px 0 32px;
+  font-size: var(--fs-body-sm);
+  line-height: 1.6;
+}
+
+/* Responsivo para Telas Menores (Mobile) */
+@media (max-width: 900px) {
+  .horariosGrid {
+    grid-template-columns: 1fr; 
+    gap: 54px;
+  }
+
+  /* 👇 CENTRALIZAÇÃO DOS TEXTOS NO MOBILE (Título, Subtítulo e Parágrafo) */
+  .horariosGrid :global(.reveal) {
+    text-align: center; /* Centraliza o título h2 e o parágrafo explicativo */
+  }
+
+  .horariosGrid :global(.eyebrow) {
+    display: block;
+    text-align: center; /* Garante a centralização do subtítulo menor */
+  }
+
+  .text {
+    margin: 16px auto 0; /* Adiciona margem automática nas laterais para alinhar o bloco */
+    text-align: center;
+  }
+  /* 👆 FIM DA CENTRALIZAÇÃO */
+
+  .ctaCard {
+    padding: 40px 24px; 
+  }
+
+  /* Aumenta a fonte e o espaçamento da tabela no celular */
+  .scheduleRow {
+    font-size: calc(var(--fs-body-sm) * 1.25); 
+    padding: 16px 0; 
+  }
+
+  /* Força a estrutura de pirâmide centralizada no Mobile */
+  .topicsList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px; 
+    margin: 24px 0 36px;
+  }
+
+  /* Garante que cada tag tenha seu tamanho próprio baseado no texto e não estique */
+  .topicTag {
+    text-align: center;
+    width: max-content; 
+    display: inline-block;
+    box-shadow: 
+      0 0 12px rgba(255, 68, 68, 0.25), 
+      inset 0 0 8px rgba(255, 68, 68, 0.15);
+    border: 1px solid rgba(255, 68, 68, 0.45);
+  }
+}
+
+
+
+/* Estilo da tag (Efeito idêntico e otimizado para PC e Mobile) */
+.topicTag {
+  /* Borda mais visível e nítida no PC */
+  border: 1px solid rgba(255, 68, 68, 0.45); 
+  padding: 12px 24px;
+  border-radius: 999px;
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-size: calc(var(--fs-tiny) * 1.25);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--white);
+  
+  /* Fundo sutilmente mais escuro para contrastar o brilho */
+  background: rgba(255, 68, 68, 0.06); 
+  
+  /* Iluminação Neon Ampliada (Glow externo e interno visível em qualquer monitor) */
+  box-shadow: 
+    0 0 15px rgba(255, 68, 68, 0.25), 
+    inset 0 0 10px rgba(255, 68, 68, 0.15);
+  
+  display: inline-block;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+/* Efeito interativo premium exclusivo para o cursor do PC */
+.topicTag:hover {
+  border-color: rgba(255, 68, 68, 0.8);
+  box-shadow: 
+    0 0 22px rgba(255, 68, 68, 0.45), 
+    inset 0 0 12px rgba(255, 68, 68, 0.25);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .text,
+  .subtitle,
+  .horariosSection p {
+    color: var(--gray);
+  }
+}

@@ -1,0 +1,18 @@
+.section {
+  padding-top: 0;
+}
+
+.text,
+.essenciaSection p {
+  color: var(--gray);
+  font-family: var(--font-barlow), sans-serif;
+  font-size: var(--fs-body);
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .text,
+  .essenciaSection p {
+    color: var(--gray);
+  }
+}

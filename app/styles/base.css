@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+.display {
+  font-family: var(--font-anton), sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 0.95;
+}
+
+:focus-visible {
+  outline: 3px solid var(--red);
+  outline-offset: 3px;
+}
+
+section {
+  padding: var(--space-section) 0;
+  scroll-margin-top: 80px; /* Evita que o título fique escondido atrás do header fixo ao navegar pelas âncoras */
+  position: relative;
+}
+
+/* Linha tracejada no topo de cada seção (menos a primeira, o Hero, que já
+   fica colado no header). Marca visualmente onde uma seção termina e a
+   próxima começa, sem depender de cor de fundo diferente entre elas.
+   Vai de uma ponta a outra da tela (a section em si não tem padding
+   lateral, só o .wrap por dentro dela tem), então não precisa de
+   width/transform pra centralizar. */
+section:not(:first-of-type)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px dashed var(--line);
+}
+
+@media (max-width: 900px) {
+  section {
+    padding: var(--space-section-tablet) 0;
+  }
+}
+
+@media (max-width: 520px) {
+  section {
+    padding: var(--space-section-mobile) 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

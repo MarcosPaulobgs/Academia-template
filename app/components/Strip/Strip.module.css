@@ -1,0 +1,38 @@
+.strip {
+  background: var(--red);
+  overflow: hidden;
+  padding: 12px 0;
+  position: relative;
+  z-index: 2;
+  margin-top: -4px;
+}
+
+.stripTrack {
+  display: flex;
+  gap: 40px;
+  white-space: nowrap;
+  animation: scroll 22s linear infinite;
+}
+
+.stripTrack span {
+  font-family: var(--font-anton), sans-serif;
+  font-size: var(--fs-body);
+  letter-spacing: 2px;
+  color: var(--black);
+  text-transform: uppercase;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stripTrack {
+    animation: none;
+  }
+}

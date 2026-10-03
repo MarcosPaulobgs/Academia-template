@@ -1,0 +1,63 @@
+:root {
+  color-scheme: dark;
+
+  --black: #0a0a0a;
+  --black-2: #141414;
+  --red: #e30613;
+  --red-dark: #8c0000;
+  --red-glow: #ff2233;
+  --white: #f5f5f0;
+  --gray: #8a8a8a;
+  --line: rgba(245, 245, 240, 0.08);
+  --max: 1180px;
+
+  /* Espaçamento vertical padrão entre seções — única fonte de verdade,
+     usada por app/styles/base.css. Ajustar aqui reflete no site inteiro. */
+  --space-section: 100px;
+  --space-section-tablet: 72px;
+  --space-section-mobile: 56px;
+
+  /* Espaço entre o cabeçalho de uma seção (eyebrow + h2 + p) e o conteúdo
+     abaixo dele. Única fonte de verdade — usada por shared.module.css. */
+  --space-head: 56px;
+  --space-head-mobile: 36px;
+
+  /* ==========================================================
+     ESCALA TIPOGRÁFICA — única fonte de verdade para font-size.
+     Qualquer texto do site deve referenciar uma destas variáveis
+     em vez de um valor solto (px/rem) no componente. Isso garante
+     que "o mesmo tipo de texto" tenha sempre o mesmo tamanho,
+     em qualquer seção, e que ajustar a escala não exija caçar
+     números mágicos arquivo por arquivo.
+     ========================================================== */
+
+  /* Títulos (font-anton) */
+  --fs-hero: clamp(43px, 7.75vw, 112px);      /* H1 do Hero — maior título do site */
+  --fs-display: clamp(40px, 8vw, 108px);      /* título decorativo gigante (Diferenciais) */
+  --fs-h2: clamp(34px, 4.6vw, 52px);          /* título padrão de seção (Sobre, Horários, Local, CTA final) */
+  --fs-h2-compact: clamp(28px, 4.2vw, 46px);  /* título de seção mais longo, precisa caber numa linha (Comentários) */
+  --fs-h2-compact-mobile: clamp(28px, 8vw, 40px);
+  --fs-h2-card: 36px;                         /* título menor dentro de um card (ex: card de contato em Horários) */
+
+  /* Subtítulos / rótulos */
+  --fs-eyebrow: 14px;                         /* rótulo pequeno acima dos títulos — mobile/base (aumentado de 13px) */
+  --fs-eyebrow-desktop: 16px;                 /* mesmo rótulo no PC — um pouco maior que no mobile */
+  --fs-h3: 24px;                              /* título de card padrão */
+  --fs-h3-condensed: 26px;                    /* título de card no Diferenciais (fonte condensada, mais fina) */
+  --fs-h4: 18px;                              /* subtítulo pequeno (ex: item de Localização) */
+
+  /* Corpo de texto (font-barlow) */
+  --fs-body-lg: 17px;                         /* parágrafo de apoio de seção / lede do Hero e do Diferenciais / CTA final */
+  --fs-body: 16px;                            /* texto corrido padrão */
+  --fs-body-sm: 15px;                         /* texto corrido secundário, links de navegação, cards */
+  --fs-small: 14px;                           /* legendas, rodapé, itens de confiança */
+  --fs-tiny: 13px;                            /* tags, copyright, autoria de depoimento */
+
+  /* Números de destaque */
+  --fs-hero-stat: 38px;                       /* número de estatística dentro do Hero (trustRow) */
+
+  /* Diversos */
+  --fs-logo: 21px;                            /* logotipo no header/footer (antes 1.3rem) */
+  --fs-icon-close: 46px;                      /* botão "X" do lightbox */
+  --fs-icon-close-mobile: 38px;
+}

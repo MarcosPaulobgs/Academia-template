@@ -1,0 +1,162 @@
+.diferenciaisSection {
+  background: #0a0a0a;
+  position: relative;
+  z-index: 2;
+  overflow: visible;
+}
+
+/* ======================================================== */
+/* ESCALA MASSIVA PREMIUM EXCLUSIVAMENTE NO PC (DESKTOP)     */
+/* Aplicada via classes locais compostas no JSX — sem        */
+/* seletor global adivinhando hash de outro módulo CSS e     */
+/* sem !important. Duas classes no mesmo elemento já dão     */
+/* especificidade suficiente para vencer o shared.module.css.*/
+/* ======================================================== */
+
+/* TÍTULO PRINCIPAL GIGANTE */
+.heading {
+  font-family: var(--font-anton), sans-serif;
+  font-size: var(--fs-display);
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+  margin: 20px 0 28px;
+}
+
+/* Parágrafo de apoio do cabeçalho */
+.diferenciaisSection .lede {
+  font-size: var(--fs-body-lg);
+  max-width: 820px;
+  line-height: 1.6;
+  color: #cfcfc9;
+}
+
+/* ======================================================== */
+/* CARDS: alinhados à esquerda, com largura própria e fundo  */
+/* fotográfico minimalista (foto escurecida + overlay)       */
+/* ======================================================== */
+.diferenciaisSection .card {
+  max-width: 320px;
+  margin: 0;
+  padding: 32px 28px;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate; /* garante que o overlay fique contido no card */
+}
+
+/* Camada de fundo: a foto do card, em baixa opacidade */
+.cardBg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: var(--card-bg);
+  background-size: cover;
+  background-position: center;
+  opacity: 0.16;
+  filter: grayscale(35%);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* Overlay escuro por cima da foto, pra manter o texto sempre legível */
+.diferenciaisSection .card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.75) 0%, rgba(10, 10, 10, 0.92) 100%);
+}
+
+/* Leve destaque no hover, sem exagero (mantém minimalista) */
+.diferenciaisSection .card:hover .cardBg {
+  opacity: 0.26;
+  transform: scale(1.04);
+}
+
+.diferenciaisSection .cardNum {
+  font-size: 68px;
+}
+
+/* Títulos dos cards mais finos, condensados e elegantes */
+.diferenciaisSection .cardTitle {
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-size: var(--fs-h3-condensed);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 14px 0 10px;
+  color: var(--white);
+}
+
+.diferenciaisSection .cardText {
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--gray);
+  font-family: var(--font-barlow), sans-serif;
+  line-height: 1.6;
+}
+
+/* Elemento decorativo: halteres */
+.decorDumbbells {
+  position: absolute;
+  right: -4vw;
+  width: 32vw;
+  height: auto;
+  aspect-ratio: 1536 / 1024;
+  opacity: 0.55;
+  z-index: -1;
+  pointer-events: none;
+  user-select: none;
+  bottom: -70px;
+}
+
+.diferenciaisSection p {
+  color: var(--gray);
+  font-family: var(--font-barlow), sans-serif;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+}
+/* ======================================================== */
+/* SMARTPHONES: 100% INTACTO E PROTEGIDO (ATÉ 720PX)         */
+/* ======================================================== */
+@media (max-width: 768px) {
+  .text,
+  .cardText,
+  .cardDesc,
+  .diferenciaisSection p {
+    color: var(--gray);
+  }
+
+  .decorDumbbells {
+    display: none;
+  }
+
+  /* Centraliza o cabeçalho da seção (eyebrow + título + texto de apoio),
+     que no desktop fica alinhado à esquerda por padrão do shared.sectionHead */
+  .diferenciaisSection .headBlock {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .diferenciaisSection .lede {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Centraliza cada card dentro da coluna única do grid no mobile */
+  .diferenciaisSection .card {
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+/* Ajuste para tablets e telas médias */
+@media (min-width: 721px) and (max-width: 900px) {
+  .decorDumbbells {
+    width: 35vw;
+    max-width: 320px;
+    opacity: 0.45;
+    bottom: -20px;
+  }
+}

@@ -1,0 +1,318 @@
+.aboutSection {
+  background: #0a0a0a;
+  position: relative;
+  overflow: hidden;
+}
+
+.mainImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ======================================================== */
+/* 1. PADRÃO DESKTOP (PC): Telas maiores que 1024px         */
+/* ======================================================== */
+@media (min-width: 1025px) {
+  .aboutGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr auto auto 1fr;
+    gap: 0 64px;
+  }
+
+  .aboutVisual {
+    grid-column: 1;
+    grid-row: 1 / -1;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .textBlock {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .eyebrowText {
+    margin-bottom: 8px;
+    display: inline-block;
+  }
+
+  .heading {
+    font-family: var(--font-anton), sans-serif;
+    font-size: var(--fs-h2, 38px);
+    text-transform: uppercase;
+    color: var(--white);
+    margin-top: 0;
+    margin-bottom: 24px;
+    line-height: 1.1;
+    letter-spacing: 0.5px;
+    padding-bottom: 30px;
+  }
+
+  .text {
+    color: var(--gray);
+    margin-top: 0;
+    line-height: 1.7;
+    font-size: 21px;
+    text-align: justify;
+    padding-bottom: 30px;
+  }
+
+  .customCtaRow {
+    grid-column: 2;
+    grid-row: 3;
+    margin-top: 32px;
+    width: 100%;
+    display: flex;
+  }
+
+  /* Faz o botão preencher toda a largura no PC */
+  .customCtaRow a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/* ======================================================== */
+/* 2. PADRÃO TABLET: Telas entre 769px e 1024px            */
+/* ======================================================== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .aboutGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .textBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .heading {
+    font-family: var(--font-anton), sans-serif;
+    font-size: calc(var(--fs-h2) * 0.9);
+    text-transform: uppercase;
+    color: var(--white);
+    margin-top: 12px;
+    margin-bottom: 16px;
+  }
+
+  .text {
+    color: var(--gray);
+    line-height: 1.6;
+    font-size: var(--fs-body);
+    text-align: center;
+  }
+
+  .aboutVisual {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    aspect-ratio: 3 / 4;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .customCtaRow {
+    margin-top: 16px;
+    width: 100%;
+  }
+
+  .customCtaRow a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* ======================================================== */
+/* 3. PADRÃO CELULAR (MOBILE)                               */
+/* ======================================================== */
+@media (max-width: 768px) {
+  .aboutGrid {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* 1º Os textos aparecem no topo */
+  .textBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    order: 1; 
+    width: 100%;
+  }
+
+  /* Restaura o padrão original do sobretítulo */
+  .eyebrowText {
+    font-size: inherit; /* Volta a herdar o tamanho do token global */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Restaura o padrão original do título "QUEM SOMOS" */
+  .heading {
+    font-family: var(--font-anton), sans-serif;
+    font-size: var(--fs-h2); /* Volta a usar o tamanho padrão do seu projeto */
+    text-transform: uppercase;
+    color: var(--white);
+    margin-top: 12px;
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+    line-height: 1.1;
+  }
+
+  .text { 
+    color: var(--gray);
+    font-family: var(--font-barlow), sans-serif;
+    font-size: var(--fs-body); /* Segue o token padrão de texto */
+    text-align: justify;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.7;
+  }
+
+  /* 2º A Imagem/Foto entra logo abaixo do parágrafo */
+  .aboutVisual {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    margin-top: 32px;
+    margin-bottom: 0;
+    order: 2; 
+  }
+
+  /* 3º O Botão de ação fecha a seção por último */
+  .customCtaRow {
+    width: 100%;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    order: 3; 
+  }
+
+  .customCtaRow a {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .galleryItem::after {
+    display: none !important;
+  }
+}
+
+
+/* ======================================================== */
+/* COMPONENTES GLOBAIS (LIGHTBOX & HOVER)                   */
+/* ======================================================== */
+.galleryItem {
+  cursor: pointer;
+  position: relative;
+}
+
+.galleryItem img {
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.galleryItem::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+@media (min-width: 769px) {
+  .galleryItem:hover img {
+    transform: scale(1.03);
+  }
+  .galleryItem:hover::after {
+    opacity: 1;
+  }
+}
+
+.lightbox {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(6, 6, 6, 0.96);
+  z-index: 99999 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.lightboxContent {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  height: auto;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightboxImg {
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: 75vh !important;
+  object-fit: contain !important;
+  border-radius: 8px;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.8);
+}
+
+.lightboxCaption {
+  color: var(--gray);
+  margin-top: 18px;
+  font-size: var(--fs-small);
+  text-align: center;
+  font-family: var(--font-barlow), sans-serif;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  background: transparent;
+  border: none;
+  color: var(--white);
+  font-size: var(--fs-icon-close);
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10000;
+}
+
+.closeBtn:hover {
+  color: var(--red);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

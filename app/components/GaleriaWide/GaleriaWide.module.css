@@ -1,0 +1,131 @@
+.section {
+  background: #0a0a0a;
+}
+
+.galleryWide {
+  aspect-ratio: 21 / 8; /* Formato panorâmico estendido de cinema para o PC */
+  width: 100%;
+}
+
+/* ======================================================== */
+/* ADIÇÃO DOS EFEITOS DE HOVER IDENTICOS À OUTRA GALERIA    */
+/* ======================================================== */
+.galleryItem {
+  cursor: pointer; /* Ativa a mãozinha de clique */
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px; /* Mantém o padrão de bordas premium do site */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Controla a aproximação suave da imagem */
+.galleryItem img {
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* Cria a película de sombra escura por cima */
+.galleryItem::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* Mesma intensidade de escurecimento */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* GATILHOS DE ATIVAÇÃO NO HOVER (PC) */
+.galleryItem:hover img {
+  transform: scale(1.03); /* Zoom elegante controlado para fotos panorâmicas */
+}
+
+.galleryItem:hover::after {
+  opacity: 1; /* Escurece suavemente no hover */
+}
+
+/* ======================================================== */
+/* O LIGHTBOX (TELA CHEIA IDENTICA)                         */
+/* ======================================================== */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 6, 6, 0.96);
+  z-index: 9999; /* Fica acima de tudo na página */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+  animation: fadeIn 0.2s ease-out;
+}
+
+.lightboxContent {
+  position: relative;
+  max-width: 90vw;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lightboxImg {
+  max-width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.8);
+}
+
+.lightboxCaption {
+  color: var(--gray);
+  margin-top: 16px;
+  font-size: var(--fs-small);
+  text-align: center;
+  font-family: var(--font-barlow), sans-serif;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  background: transparent;
+  border: none;
+  color: var(--white);
+  font-size: var(--fs-icon-close);
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.closeBtn:hover {
+  color: var(--red);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ======================================================== */
+/* RESPONSIVIDADE CALIBRADA EXCLUSIVA PARA O MOBILE (POCO)  */
+/* ======================================================== */
+@media (max-width: 900px) {
+  .galleryWide {
+    aspect-ratio: 16 / 10; /* No celular, o formato 21/8 esmagaria a foto. Mudamos para 16/10 para preencher de forma braba a tela do smartphone */
+  }
+
+  .galleryItem::after {
+    display: none !important; /* Remove o escurecimento de mouse no celular */
+  }
+
+  .lightbox {
+    padding: 16px;
+  }
+  
+  .closeBtn {
+    top: 16px;
+    right: 20px;
+    font-size: var(--fs-icon-close-mobile);
+  }
+}

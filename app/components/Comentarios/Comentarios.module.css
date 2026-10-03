@@ -1,0 +1,156 @@
+.commentText,
+.quote,
+.comentariosSection p {
+  color: var(--gray);
+  font-family: var(--font-barlow), sans-serif;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+}
+
+.comentariosSection {
+  background: #0a0a0a;
+}
+
+.centerHead {
+  text-align: center;
+  margin: 0 auto 54px;
+  max-width: 780px;
+}
+
+.heading {
+  font-family: var(--font-anton), sans-serif;
+  font-size: var(--fs-h2-compact);
+  text-transform: uppercase;
+  color: var(--white);
+  margin: 12px 0 18px;
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.subHeading {
+  font-size: var(--fs-body);
+  color: var(--gray);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.instaLink {
+  color: var(--red);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ======================================================== */
+/* GRID BLOQUEADO E SIMÉTRICO PARA O PC                     */
+/* ======================================================== */
+.testiGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Força 3 colunas perfeitas */
+  gap: 24px;
+  max-width: 1040px; /* Largura ideal para os blocos não esticarem demais */
+  margin: 0 auto;
+  width: 100%;
+}
+
+.testi {
+  background: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 170px; /* Trocado 'height' por 'min-height' para dar folga ao texto maior */
+  height: auto;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito Hover Premium no PC */
+.testi:hover {
+  transform: translateY(-5px);
+  border-color: rgba(227, 6, 19, 0.4);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+  background: #151515;
+}
+
+/* CORREÇÃO DO SELETOR: Aplica diretamente na tag p interna do card */
+.testi p {
+  color: #e2e2e2;
+  font-size: 1.05rem; /* Aumentado de --fs-small para ~17px */
+  line-height: 1.5;
+  font-style: italic;
+  margin: 0 0 16px 0;
+  display: block;
+}
+
+.who {
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem; /* Aumentado de --fs-tiny para ~14.4px */
+  color: var(--red);
+  margin-top: auto;
+}
+
+.moreRow {
+  margin-top: 54px;
+  justify-content: center;
+}
+
+/* ======================================================== */
+/* RESPONSIVIDADE PARA TABLET E MOBILE                      */
+/* ======================================================== */
+
+@media (max-width: 960px) {
+  .testiGrid {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas em notebooks menores */
+    gap: 20px;
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .commentText,
+  .quote,
+  .comentariosSection p {
+    color: var(--gray);
+  }
+}
+
+@media (max-width: 680px) {
+  .heading {
+    white-space: normal;
+    font-size: var(--fs-h2-compact-mobile);
+  }
+
+  .centerHead {
+    margin-bottom: 36px;
+  }
+
+  .testiGrid {
+    grid-template-columns: 1fr; /* 1 coluna isolada no celular */
+    gap: 16px;
+    max-width: 380px;
+    padding: 0;
+  }
+
+  .testi {
+    height: auto;      /* Remove a altura fixa para não amassar o texto no celular */
+    min-height: 110px;  /* Altura padrão mínima para o mobile */
+    padding: 24px;
+  }
+  
+  .testi p {
+    margin-bottom: 12px;
+  }
+
+  .fullWidthBtn {
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,147 @@
+.text,
+.addressText,
+.localSection p {
+  color: var(--gray);
+  font-family: var(--font-barlow), sans-serif;
+  font-size: var(--fs-body);
+  line-height: 1.6;
+}
+
+.localSection {
+  background: #0a0a0a;
+  position: relative;
+}
+
+.locGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 80px;                     
+  align-items: center;
+  max-width: 1100px;             
+  margin: 0 auto;
+  width: 100%;
+}
+
+.titleBlock {
+  text-align: left;
+}
+
+.eyebrowText {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.heading {
+  font-family: var(--font-anton), sans-serif;
+  font-size: var(--fs-h2);
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+  margin: 0 0 36px;
+}
+
+.desktopBr {
+  display: block;
+}
+
+/* Coluna de Informações */
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+.locItem {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.locIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: rgba(227, 6, 19, 0.1);
+  border: 1px solid rgba(227, 6, 19, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.locItem h3 {
+  font-family: var(--font-barlow-condensed), sans-serif;
+  text-transform: uppercase;
+  font-size: var(--fs-h4);
+  letter-spacing: 1px;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.locItem p {
+  color: var(--gray);
+  font-size: var(--fs-body-sm);
+  line-height: 1.5;
+}
+
+.customCtaRow {
+  justify-content: flex-start;
+}
+
+@media (max-width: 900px) {
+  .locGrid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    text-align: center;
+  }
+
+  .titleBlock {
+    text-align: center;
+  }
+
+  .eyebrowText {
+    text-align: center;
+  }
+
+  .heading {
+    margin-bottom: 0;
+  }
+
+  .desktopBr {
+    display: none; 
+  }
+
+  .infoBlock {
+    gap: 28px;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  .locItem {
+    text-align: left;
+  }
+
+  .customCtaRow {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 340px;
+    margin: 40px auto 0;
+  }
+
+  .customCtaRow a {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .text,
+  .addressText,
+  .localSection p {
+    color: var(--gray);
+  }
+}
